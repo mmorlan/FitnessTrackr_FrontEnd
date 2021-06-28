@@ -1,0 +1,53 @@
+#new-routine, #new-activity {
+    font-family: 'Roboto', sans-serif;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+#new-routine-form, #new-activity-form, #login-form, #registration-form {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+#registration-form > h1 {
+    width: 80%;
+}
+
+#new-routine-form > *, #new-activity-form > * {
+    height: 80px;
+    display:flex;
+    flex-direction: column;
+    margin:10px;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#new-routine-form input, #new-activity-form input {
+    height: 40px;
+    padding: 3px;
+}
+
+#routine-public {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+#submit-button {
+    width:30%;
+    height:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

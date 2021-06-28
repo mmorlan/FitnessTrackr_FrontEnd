@@ -1,0 +1,15 @@
+.activities h1 {
+    font-size: 2em;
+    font-family: 'Permanent Marker', cursive;
+  }
+  
+  .activities {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .activity {
+    max-width: 200px;
+    border: 1px solid black;
+    padding: 2%;
+  }

@@ -1,0 +1,9 @@
+#my-routines {
+    display: flex;
+    flex-direction: column;
+}
+
+#my-routines > h3 {
+    color: #6b6b6b;
+    font-style: italic;
+}

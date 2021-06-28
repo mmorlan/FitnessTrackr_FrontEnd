@@ -1,0 +1,56 @@
+.user-routine {
+    /* background-color: rgb(73, 73, 73); */
+    padding:1em;
+    padding-top: 0;
+    border-radius: 1em;
+    border: 3px solid black
+}
+
+.routine-labels {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr;
+    grid-gap:3px;
+    padding:1em;
+
+}
+
+.routine-price {
+    text-align: right;
+}
+
+.routine-seller {
+    grid-column: 2;
+    text-align: right;
+}
+
+.routine-deliverable {
+    text-align: right;
+}
+
+.routine-title {
+    font-weight: bold;
+    font-size: 2em;
+    grid-row: 1 / span 2;
+}
+
+.routine-description {
+    background-color: gray;
+    box-shadow: 0 0 3px 3px gray;
+    padding:1em;
+    border-radius: 0.5em;
+}
+
+.routine-buttons {
+    display:flex;
+    flex-direction: row;
+    width:50%;
+    padding-left:1em;
+}
+
+.reply-button, .edit-routine-button, .delete-routine-button, .message-button {
+    margin: 1em;
+    background:gray;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
