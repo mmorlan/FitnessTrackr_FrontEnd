@@ -6,10 +6,11 @@ import NavBarLink from "./NavBarLink"
 
 const NavBar = ({currentUser, setCurrentUser}) => {
     let handleLogoutClick = () => {
-        if (localStorage.getItem('currentUser')) {
+        // if (localStorage.getItem('currentUser')) {
             localStorage.clear();
             setCurrentUser('');
-        }
+        // }
+        console.log('clearing local storage')
     }
 
     let handleOtherClick = () => {
@@ -21,13 +22,14 @@ const NavBar = ({currentUser, setCurrentUser}) => {
     }, [localStorage.getItem('currentUser')])
 
     return <div id="navbar-div">
-        <Link to='/Home' style={{textDecoration: 'none'}}><NavBarLink text='Home' clickHandler={handleOtherClick}/></Link>
+        
         {!(currentUser) ? <>
         <Link to='/Register' style={{textDecoration: 'none'}}><NavBarLink text="Register" clickHandler={handleOtherClick}/></Link>
         <Link to='/Login' style={{textDecoration: 'none'}}><NavBarLink text="Login" clickHandler={handleOtherClick}/></Link>
         </> :
         <Link to="/Home" style={{textDecoration: 'none'}}><NavBarLink text="Logout" clickHandler={handleLogoutClick}/></Link>}
 
+        <Link to='/Home' style={{textDecoration: 'none'}}><NavBarLink text='Home' clickHandler={handleOtherClick}/></Link>
         <Link to='/Routines' style={{textDecoration: 'none'}}><NavBarLink text="Routines" clickHandler={handleOtherClick}/></Link>
         <Link to='/Activities' style={{textDecoration: 'none'}}><NavBarLink text="Activities" clickHandler={handleOtherClick}/></Link>
 

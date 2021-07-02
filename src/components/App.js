@@ -11,7 +11,7 @@ import NewRoutine from './NewRoutine'
 import NewActivity from './NewActivity'
 import MyRoutines from './MyRoutines'
 
-const App = (props) => {
+const App = () => {
 
     const [currentUser, setCurrentUser] = useState('')
     const [navStatus, setNavStatus] = useState(false) 
@@ -32,7 +32,7 @@ const App = (props) => {
                     <Route exact path='/Routines' render={() => <Home currentUser={currentUser}/>} />
                     <Route exact path='/Register' render={() => <Register currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/Routines' render={() => <Routines routines={routines} setRoutines={setRoutines}/>} />
-                    <Route exact path='/Activities' render={() => <Activities />} />
+                    <Route exact path='/Activities' render={() => <Activities activities={activities} setActivities={setActivities}/>} />
                     <Route exact path='/Login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/NewRoutine' render={() => <NewRoutine currentUser={currentUser} routines={routines} setRoutines={setRoutines}/>} />
                     <Route exact path='/NewActivity' render={() => <NewActivity currentUser={currentUser}/>} />

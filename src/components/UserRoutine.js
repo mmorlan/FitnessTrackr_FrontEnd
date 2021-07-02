@@ -3,13 +3,15 @@ import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import './userroutine.css';
 import axios from 'axios';
 
+import Activity from './Activity'
+
 
 const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
 
 
 
 const UserRoutine = ({
-    id, creator, publicStatus, name, goal,
+    id, creator, publicStatus, name, goal, onDeleteCallback
 }) => {
 
     let [editable, setEditable] = useState(false);
@@ -94,7 +96,10 @@ const UserRoutine = ({
                         }
                         
                         <button className="delete-routine-button"
-                            onClick={() => {deleteRoutine(id)}}>Delete Routine</button> 
+                            onClick={() => {
+                                deleteRoutine(id);
+                                onDeleteCallback();
+                            }} >Delete Routine</button> 
                     </> :
                     '' 
                 }
@@ -102,7 +107,7 @@ const UserRoutine = ({
             }
         </div>
     </>
-    console.log(newRoutine)
+
 }
 
 export default UserRoutine;

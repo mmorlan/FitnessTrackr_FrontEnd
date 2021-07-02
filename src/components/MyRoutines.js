@@ -37,7 +37,7 @@ const MyRoutines = ({currentUser }) => {
         getMyRoutines()
     
         // console.log('USE EFFECT RUNS ONCE')
-      }, [])
+      }, []) //TO DO: pass in a state that only effects once a routine is deleted
 
     const routineMatches = function(routine, term) {
         if (routine.creatorName.includes(term)){
@@ -63,6 +63,15 @@ const MyRoutines = ({currentUser }) => {
             goal={routine.goal}
             publicStatus={routine.isPublic}
             currentUser={currentUser}
+            onDeleteCallback={async () => {
+                console.log('routine was deleted');
+                async function getMyRoutines() {
+                    let data = await getRoutines(currentUser)
+                    console.log(data)
+                    setRoutines(data) // when we have the data, set it in our components variable
+                  }
+                getMyRoutines();
+            }}
         />})
     }
     
