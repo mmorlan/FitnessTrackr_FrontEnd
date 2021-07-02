@@ -1,0 +1,109 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    
+}
+
+header #navs{
+    position:fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    padding: 7px 15px;
+    color: white;
+    background-color: rgb(80, 121, 255);
+   
+}
+
+#navs .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    height: 10vh;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3em;
+    padding-left: 20px;
+
+}
+
+#search-bar {
+    font-family: 'Roboto', sans-serif;
+    width: 20%
+}
+
+#navs .hamburger {
+    color: white;
+    margin: 10px;
+    margin-top: 13px;
+    padding: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+
+}
+
+
+main { 
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:100%;
+    min-height: 100vh;
+    padding-top:10px;
+
+    color:  rgb(80, 121, 255);
+}
+
+main #lefty {
+    position:fixed;
+    top: 10vh;
+    left:0px;
+    height: 100%;
+    width: 20%;
+}
+
+main #content-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 12vh;
+    padding-left: 21%;
+    width:80%;
+    height:100%;
+
+    font-family: 'Roboto', sans-serif;
+
+}
+
+main #sidenav {
+    position:fixed;
+    top: 10vh;
+    right:0px;
+    height: 100%;
+    width: 20%;
+    border: 3px solid rgba(0,0,0,0);
+    text-align: right;
+    padding:10px;
+
+    font-size: 0.75em;
+    font-family: 'Permanent Marker', cursive;
+
+}
+
+#navbar-div, h1 {
+    color: rgb(80, 121, 255);
+}
+
+.registration {
+    padding-bottom: 20px;
+}
+
+img {
+    height:40px;
+}
+

@@ -19,8 +19,8 @@ async function getRoutines() {
 /*
     All Routines component - displays the routines
 */
-const Routines = () => {
-  const [routines, setRoutines] = useState([]) // initially it is empty array
+const Routines = ({routines, setRoutines}) => {
+ 
 
   // for pagination.. not required
   const [page, setPage] = useState(0) // load 10 per page
@@ -32,7 +32,8 @@ const Routines = () => {
   useEffect(() => {
     // async function required for awaiting the routes
     async function getAllRoutines() {
-      let data = await getRoutines()
+      let data = await getRoutines();
+      console.log('data in routines...', data);
       setRoutines(data) // when we have the data, set it in our components variable
     }
 

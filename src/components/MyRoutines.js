@@ -1,36 +1,40 @@
 import React, { useState, useEffect} from 'react';
 import './myroutines.css';
 import axios from 'axios';
-import UserRoutine from './UserRoutine';
 
-import Routine from './Routine'
+import UserRoutine from './UserRoutine';
+import NewRoutine from './NewRoutine';
 
 const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
 
-async function getRoutines() {
-    let {data} = await axios.get(BASE_URL + '/routines')
+async function getRoutines(currentUser) {
+    const requestUrl = BASE_URL + '/users/' + currentUser + '/routines';
+    let {data} = await axios.get(requestUrl);
+    console.log(currentUser)
+    console.log(data)
     return data;
 }
 
-const MyRoutines = ({currentUser}) => {
+
+const MyRoutines = ({currentUser }) => {
     
     const [routines, setRoutines] = useState([]);
 
     if (currentUser === '') {
         return (<h1>Please login.</h1>)
-        } 
+    } 
 
 
     useEffect(() => {
         // async function required for awaiting the routes
-        async function getAllRoutines() {
-          let data = await getRoutines()
+        async function getMyRoutines() {
+          let data = await getRoutines(currentUser)
           console.log(data)
           setRoutines(data) // when we have the data, set it in our components variable
         }
     
         // call the inner function once to start the process
-        getAllRoutines()
+        getMyRoutines()
     
         // console.log('USE EFFECT RUNS ONCE')
       }, [])
@@ -49,6 +53,7 @@ const MyRoutines = ({currentUser}) => {
     const filteredRoutines = routines.filter(routine => routineMatches(routine, localStorage.getItem('currentUser')));
 
     return <>
+    <h1>Your Routines</h1>
     {filteredRoutines.map((routine) => {
         return <UserRoutine
             id={routine.id}
@@ -60,7 +65,9 @@ const MyRoutines = ({currentUser}) => {
             currentUser={currentUser}
         />})
     }
+    
 </>
+
     
 }
 

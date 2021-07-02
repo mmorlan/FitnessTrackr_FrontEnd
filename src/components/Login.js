@@ -17,13 +17,11 @@ const Login = ({currentUser, setCurrentUser}) => {
             localStorage.setItem('currentUserToken', response.token)
             console.log(response)
             console.log(response.user.username)
-            
-            setCurrentUser(response.user.username)
-            
-            localStorage.setItem('currentUser', currentUser);
-
-            setLoginMessage("You are now logged in as " + response.user.username)
-
+            console.log('updating with', response.user.username);
+            setCurrentUser(response.user.username);
+            localStorage.setItem('currentUser', response.user.username);
+            setLoginMessage("You are now logged in as " + response.user.username);
+        
         } catch (error) {
             setLoginMessage("Sorry, we do not recognize that username and password combination");
         }

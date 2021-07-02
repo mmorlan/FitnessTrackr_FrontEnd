@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import './newroutine.css';
 
 const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
 
-const NewRoutine = ({currentUser}) => {
+const NewRoutine = ({currentUser, routines, setRoutines}) => {
     if (currentUser === '') {
     return (<h1>Please login.</h1>)
     }
@@ -29,7 +29,11 @@ const NewRoutine = ({currentUser}) => {
             }
         )).data;
 
-        console.log(response)
+        console.log('here...', response)
+        
+        const updatedRoutines = routines.concat([response]);
+        console.log('updatedroutines: ', updatedRoutines);
+        setRoutines(updatedRoutines);
 
         } catch (error) {
             console.error(error);
@@ -40,7 +44,7 @@ const NewRoutine = ({currentUser}) => {
 
     return (<div id="new-routine">
         <h1>Create New Routine</h1>
-        <form id="new-routine-form" onSubmit={function(event) 
+       <form id="new-routine-form" onSubmit={function(event) 
             {event.preventDefault() 
             createNewRoutine()}}>
             <div id="routine-name">

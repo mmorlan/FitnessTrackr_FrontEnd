@@ -9,7 +9,7 @@ const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
 
 
 const UserRoutine = ({
-    id, creator, publicStatus, name, goal, currentUser
+    id, creator, publicStatus, name, goal,
 }) => {
 
     let [editable, setEditable] = useState(false);
@@ -26,13 +26,15 @@ const UserRoutine = ({
 
     }
 
-    function editRoutine() {
+    function editRoutine(id) {
         newRoutine = {
                 name: newName,
                 goal: newGoal,
                 isPublic: newPublicStatus
         }
-        axios.patch(BASE_URL + "/routines/" + id, 
+        const requestUrl = BASE_URL + "/routines/" + id;
+        console.log({requestUrl})
+        axios.patch(requestUrl, 
             newRoutine,
             {
                 headers: {
@@ -71,7 +73,7 @@ const UserRoutine = ({
                     <div className="routine-name">{name}</div>
                     <div className="routine-goal">{goal}</div>
                     <div className="routine-creator">{creator}</div>
-                    <div className="routine-public-status">{publicStatus ? '' : 'This routine is currently private'}</div>
+                    <div className="routine-public-status">{publicStatus ? 'Public' : 'This routine is currently private'}</div>
                 </> }
                 </div>
         </div>
@@ -83,7 +85,7 @@ const UserRoutine = ({
                         {editable ? 
                             <><button className="edit-routine-button" 
                                 onClick={() => {
-                                    editRoutine();
+                                    editRoutine(id);
                                 }}>Save Changes</button>
                             <button className="edit-routine-button" onClick={() => {setEditable(false)}}>Cancel Changes</button>
                             </> : 
@@ -100,7 +102,7 @@ const UserRoutine = ({
             }
         </div>
     </>
-
+    console.log(newRoutine)
 }
 
 export default UserRoutine;
