@@ -3,7 +3,6 @@ import './myroutines.css';
 import axios from 'axios';
 
 import UserRoutine from './UserRoutine';
-import NewRoutine from './NewRoutine';
 
 const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
 

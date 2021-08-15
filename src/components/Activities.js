@@ -6,6 +6,7 @@ async function getActivities() {
     let { data } = await axios.get(
       'http://fitnesstrac-kr.herokuapp.com/api/activities'
     )
+    console.log(data)
     return data
   }
 
@@ -52,3 +53,4 @@ const SingleActivity = ({ activity }) => {
 }
 
 export default Activities
+export {getActivities}

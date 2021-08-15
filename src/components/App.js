@@ -16,6 +16,7 @@ const App = () => {
     const [currentUser, setCurrentUser] = useState('')
     const [navStatus, setNavStatus] = useState(false) 
     const [routines, setRoutines] = useState([]) // initially it is empty array
+    const [activities, setActivities] = useState([])
     console.log('current user in app root', currentUser);
 
     return <div id ="app">
