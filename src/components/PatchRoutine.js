@@ -1,30 +1,32 @@
 import React, {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-async function editRoutine(id) {
+const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
+
+async function editRoutine(event) {
 
     const requestUrl = BASE_URL + "/routines/" + id;
 
-    console.log({requestUrl})
-
+    event.preventDefault()
+    window.console.log({requestUrl})
     const [name, goal, isPublic] = event.target
     
     try {
-        const {data: revisedRoutine} = await axios({
+        const {data: patchedRoutine} = await axios({
             method: 'PATCH',
             url: `${requestUrl}`,
             data: {
-                'name': `${name.value}`,
-                'goal': `${name.value}`,
-                'isPublic': `${isPublic.checked}`
+                'name': name.value,
+                'goal': goal.value,
+                'isPublic': isPublic.checked
             },
             headers: {
-                Authorization: "Bearer " + token
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             }
         })
         window.location.reload();
-        window.console.log('Updated routine:', revisedRoutine)
+        window.console.log('Updated routine:', patchedRoutine)
     } catch (error) {
         window.console.error(error);
     }
@@ -45,11 +47,6 @@ useEffect (() => {
 
 }, [])
 
-
-
-
-
-
     return (
    
         <form className="routine-labels" onSubmit={event => editRoutine(event)}>               
@@ -62,7 +59,6 @@ useEffect (() => {
             
     )
 }
-
 
 
 export default PatchRoutine

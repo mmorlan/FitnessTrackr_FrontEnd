@@ -37,7 +37,7 @@ const App = () => {
                     <Route exact path='/Login' render={() => <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
                     <Route exact path='/NewRoutine' render={() => <NewRoutine currentUser={currentUser} routines={routines} setRoutines={setRoutines}/>} />
                     <Route exact path='/NewActivity' render={() => <NewActivity currentUser={currentUser}/>} />
-                    <Route exact path='/MyRoutines' render={() => <MyRoutines currentUser={currentUser} />} />
+                    <Route exact path='/MyRoutines' render={() => <MyRoutines currentUser={currentUser}/>} />
 
                 </section>
                 <section id="sidenav">

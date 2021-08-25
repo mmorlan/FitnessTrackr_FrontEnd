@@ -1,5 +1,10 @@
+import React, { useState, useEffect} from 'react';
+
+
+const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api';
+
 const DeleteRoutine = ({
-    id, onDeleteCallback
+    id
 }) => {
 
     async function deleteRoutine(id) {
@@ -11,3 +16,12 @@ const DeleteRoutine = ({
         });
 
     }
+
+    return (
+        <button className="delete-routine-button"
+            onClick={() => {deleteRoutine(id)}}>Delete Routine</button> 
+    )
+
+}
+
+export default DeleteRoutine
